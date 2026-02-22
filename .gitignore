@@ -1,0 +1,20 @@
+# Datos y modelos (Demasiado pesados para Git)
+data/
+models/
+notebooks/review/
+*.pkl
+*.joblib
+*.csv
+*.parquet
+
+# Entornos virtuales
+venv/
+.env
+.venv/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
