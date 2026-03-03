@@ -463,6 +463,11 @@ with tab2:
     }
     seg_color = seg_color_map.get(segment_name, '#64748b')
 
+    def hex_to_rgba(hex_color, alpha=0.13):
+        hex_color = hex_color.lstrip('#')
+        r, g, b = int(hex_color[0:2], 16), int(hex_color[2:4], 16), int(hex_color[4:6], 16)
+        return f'rgba({r},{g},{b},{alpha})'
+
     seg_defs = {
         'High-Value At-Risk': ('🚨', 'High monthly spend combined with elevated churn probability. Prime candidate for immediate retention with a premium offer.'),
         'Low-Value At-Risk':  ('⚠️', 'Lower spend but high churn risk. Evaluate cost of retention vs. LTV carefully before investing.'),
@@ -519,7 +524,7 @@ with tab2:
         fig_radar = go.Figure()
         fig_radar.add_trace(go.Scatterpolar(
             r=seg_avg + [seg_avg[0]], theta=categories + [categories[0]],
-            fill='toself', fillcolor=f'{seg_color}22',
+            fill='toself', fillcolor=hex_to_rgba(seg_color, 0.13),
             line=dict(color=seg_color, width=2, dash='dash'),
             name=f'{segment_name} (avg)',
         ))
