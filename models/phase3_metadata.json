@@ -1,0 +1,68 @@
+{
+  "phase": 3,
+  "K_clusters": 4,
+  "cluster_features": [
+    "tenure",
+    "MonthlyCharges",
+    "TotalCharges",
+    "Num_Services",
+    "ChargeVelocity",
+    "Has_Contract",
+    "SeniorCitizen",
+    "ElecCheck"
+  ],
+  "segment_names": {
+    "0": "Low-Value At-Risk",
+    "1": "High-Value At-Risk",
+    "3": "Loyal Anchors",
+    "2": "Core Stable"
+  },
+  "segment_churn_rates": {
+    "0": 0.667,
+    "1": 0.411,
+    "3": 0.114,
+    "2": 0.098
+  },
+  "segment_sizes": {
+    "0": 885,
+    "1": 2058,
+    "3": 1988,
+    "2": 2112
+  },
+  "cox_features": [
+    "SeniorCitizen",
+    "Has_Contract",
+    "Num_Services",
+    "MonthlyCharges",
+    "ElecCheck",
+    "InternetService_Fiber optic",
+    "InternetService_No",
+    "OnlineSecurity_Yes",
+    "PaperlessBilling_Yes",
+    "Contract_Two year"
+  ],
+  "cox_log_likelihood": -14448.469,
+  "log_rank_results": {
+    "Contract Type": {
+      "chi2": 926.065,
+      "p": 0.0
+    },
+    "Internet Service": {
+      "chi2": 227.175,
+      "p": 0.0
+    },
+    "Senior Citizen": {
+      "chi2": 109.49,
+      "p": 0.0
+    }
+  },
+  "survival_medians": {
+    "0": 2,
+    "1": 38,
+    "2": null,
+    "3": null
+  },
+  "peak_hazard_month": 0,
+  "total_intervention_ev": 637589.0,
+  "n_worth_targeting": 5106
+}

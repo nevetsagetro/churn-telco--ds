@@ -1,0 +1,140 @@
+{
+  "phase": 2,
+  "objective": "Baseline churn model \u2014 binary classification + probability scoring",
+  "dataset_size": 7043,
+  "churn_rate": 0.2654,
+  "feature_columns": [
+    "SeniorCitizen",
+    "tenure",
+    "MonthlyCharges",
+    "ServiceCount",
+    "ChargeVelocity",
+    "BillRatio",
+    "num_services",
+    "Num_Services",
+    "Has_Contract",
+    "Tenure_x_Contract",
+    "ElecCheck",
+    "gender_Male",
+    "Partner_Yes",
+    "Dependents_Yes",
+    "PhoneService_Yes",
+    "MultipleLines_No phone service",
+    "MultipleLines_Yes",
+    "InternetService_Fiber optic",
+    "InternetService_No",
+    "OnlineSecurity_Yes",
+    "OnlineBackup_Yes",
+    "DeviceProtection_Yes",
+    "TechSupport_Yes",
+    "StreamingTV_Yes",
+    "StreamingMovies_Yes",
+    "Contract_One year",
+    "Contract_Two year",
+    "PaperlessBilling_Yes",
+    "PaymentMethod_Credit card (automatic)",
+    "PaymentMethod_Electronic check",
+    "PaymentMethod_Mailed check"
+  ],
+  "num_features": 31,
+  "dropped_features": [
+    "TotalCharges (VIF > 10, algebraic dependency)"
+  ],
+  "models_trained": [
+    "Dummy (stratified)",
+    "LogReg (L2, balanced)",
+    "XGBoost",
+    "LightGBM",
+    "TabNet"
+  ],
+  "cv_strategy": "10-fold StratifiedKFold, shuffle=True",
+  "cv_results": {
+    "Dummy (stratified)": {
+      "auc_mean": 0.48546,
+      "auc_std": 0.02574,
+      "pr_mean": 0.26146,
+      "brier_mean": 0.40912
+    },
+    "LogReg (L2, balanced)": {
+      "auc_mean": 0.85097,
+      "auc_std": 0.01569,
+      "pr_mean": 0.67489,
+      "brier_mean": 0.24192
+    },
+    "XGBoost": {
+      "auc_mean": 0.84687,
+      "auc_std": 0.01487,
+      "pr_mean": 0.66847,
+      "brier_mean": 0.24742
+    },
+    "LightGBM": {
+      "auc_mean": 0.84177,
+      "auc_std": 0.01364,
+      "pr_mean": 0.66287,
+      "brier_mean": 0.24086
+    },
+    "TabNet": {
+      "auc_mean": 0.83046,
+      "auc_std": 0.01421,
+      "pr_mean": 0.63185,
+      "brier_mean": 0.17126
+    }
+  },
+  "best_model": "XGBoost",
+  "calibration_method": "isotonic",
+  "threshold": 0.1509,
+  "threshold_criterion": "F-beta (beta=2.0) optimal on calibration set",
+  "business_params": {
+    "campaign_cost": 50,
+    "ltv_benefit": 500,
+    "beta": 2.0
+  },
+  "test_metrics": {
+    "roc_auc": 0.84023,
+    "auc_95ci_lo": 0.81379,
+    "auc_95ci_hi": 0.86666,
+    "pr_auc": 0.61725,
+    "brier": 0.14025,
+    "ece": 0.03164,
+    "log_loss": 0.43166,
+    "precision": 0.44371,
+    "recall": 0.89572,
+    "f1": 0.59345,
+    "f2.0": 0.74411,
+    "tp": 335,
+    "fp": 420,
+    "fn": 39,
+    "tn": 615
+  },
+  "cv_vs_test_gap": 0.00664,
+  "top10_features_shap": [
+    "Has_Contract",
+    "BillRatio",
+    "InternetService_Fiber optic",
+    "tenure",
+    "MonthlyCharges",
+    "ElecCheck",
+    "Contract_Two year",
+    "OnlineSecurity_Yes",
+    "ChargeVelocity",
+    "PaperlessBilling_Yes"
+  ],
+  "sig_tests": {
+    "XGBoost": {
+      "p_value": 0.00311,
+      "delta_auc": -0.00411
+    },
+    "LightGBM": {
+      "p_value": 0.0019,
+      "delta_auc": -0.0092
+    },
+    "TabNet": {
+      "p_value": 0.00018,
+      "delta_auc": -0.02051
+    },
+    "XGBoost_vs_LightGBM": {
+      "p_value": 0.02118,
+      "delta_auc": 0.00509
+    }
+  }
+}
