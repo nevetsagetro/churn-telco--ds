@@ -83,7 +83,7 @@ Streamlit Dashboard (this app)
 ## 🚀 Run Locally
 
 ```bash
-git clone https://github.com/TU_USUARIO/tu-repo.git
+git clone https://github.com/nevetsagetro/churn-telco--ds
 cd tu-repo
 pip install -r requirements.txt
 streamlit run app.py
