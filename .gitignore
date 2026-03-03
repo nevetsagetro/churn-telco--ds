@@ -1,8 +1,6 @@
 # Datos y modelos (Demasiado pesados para Git)
 data/
-models/
 notebooks/review/
-*.pkl
 *.joblib
 *.csv
 *.parquet
@@ -17,4 +15,4 @@ venv/
 
 # Python
 __pycache__/
-*.py[cod]
+# *.py[cod]
