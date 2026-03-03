@@ -697,3 +697,11 @@ with tab3:
     for col, (label, value) in zip(m_cols, kpis):
         with col:
             st.metric(label, value)
+
+# FOOTER 
+st.markdown("---")
+st.markdown("""
+<div style="text-align:center;padding:1rem 0 0.5rem;color:#64748b;font-size:0.8rem;font-family:IBM Plex Mono,monospace;">
+    made with <span style="color:#ef4444;">♥</span> by <span style="color:#e2e8f0;font-weight:500;">Nevets Agetro</span>
+</div>
+""", unsafe_allow_html=True)
