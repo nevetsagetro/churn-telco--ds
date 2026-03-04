@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ⚡ ChurnSight — Customer Retention Intelligence
 
 > **Live demo →** [churnsight](https://churn-telco--ds-nvs.streamlit.app/)
@@ -84,7 +85,7 @@ Streamlit Dashboard (this app)
 
 ```bash
 git clone https://github.com/nevetsagetro/churn-telco--ds
-cd tu-repo
+cd churn-telco--ds
 pip install -r requirements.txt
 streamlit run app.py
 ```
@@ -123,3 +124,4 @@ streamlit run app.py
 ---
 
 *made with ♥ by Nevets Agetro*
+
