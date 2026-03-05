@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # ⚡ ChurnSight — Customer Retention Intelligence
 
 > **Live demo →** [churnsight](https://churn-telco--ds-nvs.streamlit.app/)
